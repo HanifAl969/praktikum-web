@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+    <div class="logo">Hanif Al</div>
+    <div class="hamburger" id="hamburger">
+        
+    </div>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#certificate">Certificates</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+
+    <div class="container">
+        <header>
+            <div class="profile-container" id="profilePic">
+                <img src="img/desktop.png" alt="Profile Picture" class="profile-pic">
+                <div class="ring"></div>
+            </div>
+            <h1>Hanif Al</h1>
+            <p class="tagline">New Bie front-end Developer</p>
+        </header>
+        
+        <section id="about" class="fade-in">
+            <h2>About Me</h2>
+            <p>Hello! I'm a passionate web developer with over 5 years of experience in creating beautiful and functional websites. I specialize in front-end development but also have strong back-end skills. My journey in web development started when I was in college, and since then I've worked with various technologies including HTML, CSS, JavaScript, React, Node.js, and more.</p>
+            <br>
+            <p>When I'm not coding, you can find me hiking, reading tech blogs, or experimenting with new recipes in the kitchen. I believe in continuous learning and always strive to improve my skills and stay updated with the latest web technologies.</p>
+        </section>
+
+        <section id="skills-experience" class="fade-in">
+  <div class="skills-exp-container">
+    <!-- Soft Skills -->
+    <div class="soft-skills-box">
+      <h2>🧠 Soft Skills</h2>
+      <ul class="soft-skill-list">
+        <li>✅ Fast Learner & Curious</li>
+        <li>🤝 Team Collaboration</li>
+        <li>🧩 Problem Solving</li>
+        <li>📚 Continuous Learning Habit</li>
+      </ul>
+    </div>
+
+    <!-- Experience -->
+    <div class="experience-box">
+      <h2>📜 Experience</h2>
+      <ul class="experience-list">
+        <li>💻 Front-End Web Developer – Dicoding (2024)</li>
+        <!-- <li>🧠 JavaScript Algorithms – freeCodeCamp (2023)</li>
+        <li>⚛️ React Certification – Coursera (2022)</li> -->
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+        <section id="certificate" class="fade-in">
+        <h2>💼 Skills & Tools</h2>
+
+        <div class="skills-container">
+          <div class="tools">
+            <div class="tool-badges">
+                <span class="badge">ChaptGPT</span>
+                <span class="badge">Deepseek</span>
+                <span class="badge">GeminiAI</span>
+                <span class="badge">BlackBox</span>
+                <span class="badge">VS Code</span>
+            </div>
+          </div>
+        </section>
+
+<section id="languages" class="fade-in">
+    <h2>🌐 Language Proficiency</h2>
+    <div class="skills-container">
+        <div class="language-box">
+          <div class="transparent-background">
+            <div class="language-item">
+  <div class="language-header">
+    <img src="https://flagcdn.com/us.svg" alt="English" class="flag">
+    <div class="lang-info">
+      <span class="lang-name">English</span>
+      <span class="lang-level">Quite Fluent</span>
+    </div>
+  </div>
+  <div class="progress-track">
+    <div class="progress-fill fluent"></div>
+  </div>
+</div>
+
+    </div>
+
+            <div class="language-item">
+                <div class="language-header">
+                    <img src="https://flagcdn.com/cn.svg" alt="Mandarin" class="flag">
+                    <div class="lang-info">
+                        <span class="lang-name">Mandarin</span>
+                        <span class="lang-level">Dasar</span>
+                    </div>
+                </div>
+                <div class="progress-track"><div class="progress-fill basic"></div></div>
+            </div>
+
+            <div class="language-item">
+                <div class="language-header">
+                    <img src="https://flagcdn.com/sa.svg" alt="Arabic" class="flag">
+                    <div class="lang-info">
+                        <span class="lang-name">Arabic</span>
+                        <span class="lang-level">Dasar</span>
+                    </div>
+                </div>
+                <div class="progress-track"><div class="progress-fill basic"></div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+        
+        <div class="scroll-indicator" id="scrollIndicator">↓</div>
+      </div>
+      
+    <footer id="contact">
+    <p>&copy; 2025 Hanif Al | All rights reserved.</p>
+    <p>Connect: <a href="mailto:hanif@example.com">hnffrqn10@gmail.com</a></p>
+    </footer>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function () {
+    const navbar = document.querySelector('.navbar');
+    const scrollIndicator = document.getElementById('scrollIndicator');
+    const aboutSection = document.getElementById('about');
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    let lastScroll = window.scrollY;
+
+    // Toggle menu on mobile
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+
+    // Scroll behavior
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.scrollY;
+
+        // Show/hide navbar
+        if (currentScroll > lastScroll) {
+            navbar.classList.add('hide');
+        } else {
+            navbar.classList.remove('hide');
+        }
+        lastScroll = currentScroll;
+
+        // Scroll indicator
+        if (scrollIndicator && currentScroll > aboutSection.offsetTop - 100) {
+            scrollIndicator.style.opacity = '0';
+            scrollIndicator.style.visibility = 'hidden';
+        } else if (scrollIndicator) {
+            scrollIndicator.style.opacity = '1';
+            scrollIndicator.style.visibility = 'visible';
+        }
+
+        // Fade-in effect
+        fadeEls.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 100) {
+                el.classList.add('visible');
+            }
+        });
+    });
+});
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const profilePic = document.getElementById('profilePic');
+            const aboutSection = document.getElementById('about');
+            const scrollIndicator = document.getElementById('scrollIndicator');
+            const fadeEls = document.querySelectorAll('.fade-in');
+
+            // Smooth scroll saat klik profil atau indikator
+            profilePic.addEventListener('click', function() {
+                aboutSection.scrollIntoView({ behavior: 'smooth' });
+            });
+            scrollIndicator.addEventListener('click', function() {
+                aboutSection.scrollIntoView({ behavior: 'smooth' });
+            });
+
+            // Sembunyikan scroll indicator setelah scroll ke bawah
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > aboutSection.offsetTop - 100) {
+                    scrollIndicator.style.opacity = '0';
+                    scrollIndicator.style.visibility = 'hidden';
+                } else {
+                    scrollIndicator.style.opacity = '1';
+                    scrollIndicator.style.visibility = 'visible';
+                }
+
+                // Tambah class visible untuk efek animasi saat scroll
+                fadeEls.forEach(function(el) {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight - 100) {
+                        el.classList.add('visible');
+                    }
+                });
+            });
+
+            // Trigger efek saat pertama kali dimuat
+            window.dispatchEvent(new Event('scroll'));
+        });
+    </script>
+</body>
+</html>
